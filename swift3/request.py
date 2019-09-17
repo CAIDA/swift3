@@ -307,7 +307,7 @@ class SigV4Mixin(object):
         """
         It won't require bucket name in canonical_uri for v4.
         """
-        return self.environ.get('RAW_PATH_INFO', self.path)
+        return quote(self.environ.get('RAW_PATH_INFO', self.path))
 
     def _canonical_request(self):
         # prepare 'canonical_request'
